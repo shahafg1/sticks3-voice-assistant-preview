@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "note": "Pinned model files. tools/setup_mac.py downloads them from the pinned revisions and verifies size and SHA-256 before activating. Licence terms: THIRD_PARTY_NOTICES.md; nothing here is a licence statement.",
+  "tts": {
+    "source": "huggingface.co notmax123/piper-medium-heb",
+    "revision": "159c04c325df208e2045d929f11a25015942729a",
+    "folder": "models_dir",
+    "files": [
+      {
+        "name": "piper_medium_male.onnx",
+        "bytes": 63461522,
+        "sha256": "9971617aaa8786aea27325ac458fc4371d54af0d4316c2002b76789806cb2090"
+      },
+      {
+        "name": "phonikud-1.0.onnx",
+        "bytes": 307844158,
+        "sha256": "c1fa2624b1e8202a0c0a23259b560b0c41ad92a3a6750bd0e322ce5a2b1acdb6"
+      },
+      {
+        "name": "model.config.json",
+        "bytes": 8276,
+        "sha256": "0628eb7c696ff89b3ef64f4ec022a0b61278ef3b72bf62dd21b577f013854708"
+      }
+    ],
+    "repo": "notmax123/piper-medium-heb"
+  },
+  "whisper": {
+    "source": "huggingface.co mlx-community/whisper-large-v3-turbo",
+    "cache_folder": "models--mlx-community--whisper-large-v3-turbo",
+    "observed_revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb",
+    "pinned_in_code": "the server uses the pinned local copy in whisper_dir when tools/setup_mac.py made it; otherwise the Hugging Face cache, as before",
+    "downloaded_automatically": "not when set up by tools/setup_mac.py (downloaded then, at the pinned revision); otherwise on the first transcription",
+    "files": [
+      {
+        "name": "weights.safetensors",
+        "bytes": 1613977612,
+        "sha256": "951ed3fc1203e6a62467abb2144a96ce7eafca8fa77e3704fdb8635ff3e7f8a6"
+      },
+      {
+        "name": "config.json",
+        "bytes": 268,
+        "sha256": "b34fc29e4e11e0a25e812775dd67f4dd16fc2c8eb43d28ae25ff7d660ecb6379"
+      }
+    ],
+    "repo": "mlx-community/whisper-large-v3-turbo",
+    "revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb",
+    "folder": "whisper_dir"
+  },
+  "environments_approx_bytes": {
+    "voice_env": 1300000000,
+    "tts_env": 180000000,
+    "tools_env": 14000000
+  }
+}

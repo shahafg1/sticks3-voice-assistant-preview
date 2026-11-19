@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "description": "The assistant's complete file set for a StickS3 on UIFlow2 V2.4.8 (tools/stick_install.py). Order = activation order: configuration and sounds first, modules in deploy order (tools/deploy_stick.sh FILES), main.py last. Order is risk reduction only.",
+  "licensing": {
+    "summary": "The shake sounds are original synthesized effects (MIT). The Hebrew voice that speaks the answers is downloaded by setup and is CC-BY-NC-4.0 (non-commercial); see THIRD_PARTY_NOTICES.md. The complete voice stack is not cleared for commercial use."
+  },
+  "files": [
+    {
+      "path": "/flash/device_config.json",
+      "source": "generated:device-config",
+      "role": "device-configuration",
+      "note": "generated on this Mac from config/host.conf: server address and port only"
+    },
+    {
+      "path": "/flash/sounds/shake1.wav",
+      "source": "stick/sounds/shake1.wav",
+      "role": "sound",
+      "license": "original synthesized sound effect (this project, MIT), made by tools/make_sound_effects.py; no voice or recording",
+      "sha256": "59758483ad30b6c79328c275b09f7f3790dfc8c790190b0e84861cf43a7cacec"
+    },
+    {
+      "path": "/flash/sounds/shake2.wav",
+      "source": "stick/sounds/shake2.wav",
+      "role": "sound",
+      "license": "original synthesized sound effect (this project, MIT), made by tools/make_sound_effects.py; no voice or recording",
+      "sha256": "d81803c240a05b18afbe8f42043308b25cb5e92e5149b758da5cadb0534ec157"
+    },
+    {
+      "path": "/flash/sounds/shake3.wav",
+      "source": "stick/sounds/shake3.wav",
+      "role": "sound",
+      "license": "original synthesized sound effect (this project, MIT), made by tools/make_sound_effects.py; no voice or recording",
+      "sha256": "2052a11ff42c9eb0831709b77d5bb873c874787bbbc63894f247626aba15ffef"
+    },
+    {
+      "path": "/flash/server_config.py",
+      "source": "stick/server_config.py",
+      "role": "module",
+      "sha256": "fd20dedc2726d450a5230e932da982a5376a726e4517550c1ed59e84aea3b37d",
+      "note": "reads device_config.json (the server address)"
+    },
+    {
+      "path": "/flash/mic.py",
+      "source": "stick/mic.py",
+      "role": "module",
+      "sha256": "201713eed3d15c3ef0ea778d50bc5fbdb853c58952d8c4da550d866a0f28c7c5",
+      "note": "the v0.11.1 microphone buffer-lifetime fix (docs/mic-buffer-lifetime.md)"
+    },
+    {
+      "path": "/flash/statick_shapes.py",
+      "source": "stick/statick_shapes.py",
+      "role": "module",
+      "sha256": "23b9b4ae1038d2c55754e74abab77ad86318a5c241290e04e9a1ff9f7e35a4f8",
+      "note": "Statick, the assistant's character (shapes and expressions)"
+    },
+    {
+      "path": "/flash/shake.py",
+      "source": "stick/shake.py",
+      "role": "module",
+      "sha256": "8c252f6f7c1e1ee79fc5f22c764a0538ee9e9bb94c5df68bb87ef539cb179b17"
+    },
+    {
+      "path": "/flash/voice_send.py",
+      "source": "stick/voice_send.py",
+      "role": "module",
+      "sha256": "1ad1c9d822e5d1d7b8eaaeb9d9103cb9d7642da8e37c20caead3493ac2cc7c0c"
+    },
+    {
+      "path": "/flash/device.py",
+      "source": "stick/device.py",
+      "role": "module",
+      "sha256": "92042074a8f82fa0f5d8cac98e31c5587df881ba6d7f2aa79726e667f878a469"
+    },
+    {
+      "path": "/flash/sleep.py",
+      "source": "stick/sleep.py",
+      "role": "module",
+      "sha256": "ca04d750702ea75caf3de109576d7d4efbcd0c046b1b54aa2a235df6735f8014"
+    },
+    {
+      "path": "/flash/reminder.py",
+      "source": "stick/reminder.py",
+      "role": "module",
+      "sha256": "3230bbb13e7c1368b89914dd354cb2c5874c48fca76256d3e8c9e1ce4520f20d"
+    },
+    {
+      "path": "/flash/robot.py",
+      "source": "stick/robot.py",
+      "role": "module",
+      "sha256": "bbd5d62788b29b20d74bd53395b685a0a0304339f12e438b2ef93074a4df4848"
+    },
+    {
+      "path": "/flash/notify.py",
+      "source": "stick/notify.py",
+      "role": "module",
+      "sha256": "c140b06534ac193f867ae048186393bbda2d87104c347531030d6a8e55609cee"
+    },
+    {
+      "path": "/flash/main.py",
+      "source": "stick/main.py",
+      "role": "startup",
+      "sha256": "dc6bc5ce82778ab7707dcf3bf1eb7507a841157bd6f5781a00f518319e167118",
+      "note": "startup file: runs the assistant when boot_option is 0 (not changed by the installer)"
+    }
+  ]
+}

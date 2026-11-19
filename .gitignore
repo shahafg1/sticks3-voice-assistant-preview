@@ -1,0 +1,67 @@
+# Virtual environments and caches
+voice-env/
+tts-env/
+tts-env312/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.cache/
+.DS_Store
+
+# Downloaded models (see README for sources and hashes)
+tts-models/
+vad-model/
+*.onnx
+*.jit
+*.pt
+*.ckpt
+*.safetensors
+
+# Audio, transcripts, generated replies and logs (personal content)
+recordings/
+*.wav
+!stick/sounds/*.wav
+*.pcm
+*.raw
+*.aiff
+*.mp3
+*.log
+transcript*.txt
+reply*.txt
+*.flag
+
+# Credentials, tokens and private settings
+.env
+.env.*
+*.key
+*.pem
+secrets*
+credentials*
+*token*
+nvs*.bin
+*.nvs
+
+# Raw device backups, investigations and superseded local copies
+stick-backup-*/
+silence-investigation-*/
+connection-test/
+audio_server_backup*.py
+audio_server_before_*.py
+
+# Desktop panel runtime data and the device secret (never commit)
+data/
+secrets/
+
+# Browser-test output
+.playwright-mcp/
+server-backup-*/
+
+# Host configuration (private to one Mac), generated device configuration, default Stick-tools environment
+config/host.conf
+build/
+tools-env/
+
+# Mac setup tool (tools/setup_mac.py): project-owned model copy and the installer state (no secrets)
+whisper-model/
+.stick-setup/

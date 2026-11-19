@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "note": "What tools/setup_mac.py builds. 'python' is the version the lock file was made for and the one the project has been tested with; other versions are refused unless --allow-untested-python is given.",
+  "environments": [
+    {"id": "voice_env", "title": "Server environment (speech recognition and the voice server)", "python": "3.14", "lock": "requirements/server.lock",
+     "smoke": ["numpy", "scipy", "mlx.core", "mlx_whisper"], "approx_bytes": 1300000000},
+    {"id": "tts_env", "title": "Hebrew speech-synthesis environment", "python": "3.12", "lock": "requirements/tts.lock",
+     "smoke": ["numpy", "onnxruntime", "phonikud", "phonikud_onnx", "soundfile"], "approx_bytes": 180000000},
+    {"id": "tools_env", "title": "Stick tools environment (mpremote)", "python": "3.14", "lock": "requirements/stick-tools.lock",
+     "smoke": ["mpremote"], "approx_bytes": 14000000}
+  ]
+}

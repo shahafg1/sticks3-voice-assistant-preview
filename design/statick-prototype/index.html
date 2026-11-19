@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>סטטיק (Statick) · אב-טיפוס חזותי לבדיקה</title>
+  <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+  <header class="top">
+    <h1>סטטיק <bdi lang="en" dir="ltr">Statick</bdi></h1>
+    <p class="sub">אב-טיפוס חזותי של הדמות, <b>לבדיקה בלבד</b></p>
+  </header>
+
+  <p class="banner" role="note"><b>מוקאפ בדפדפן.</b> זה ציור במסך המחשב, בקואורדינטות של מסך ה-Stick (135×240). הוא <b>לא רץ על ה-Stick</b> ולא נבדק עליו: הצבעים, החדות והמהירות על המכשיר האמיתי עשויים להיראות אחרת. שום דבר כאן אינו מחובר לשרת, ל-Stick או להגדרות. <bdi lang="en" dir="ltr">Browser mockup: not rendered on the device.</bdi></p>
+
+  <nav class="jump" aria-label="קפיצה לחלקים">
+    <a href="#hero">הדמות</a><a href="#states">כל המצבים</a><a href="#pixels">פיקסלים</a><a href="#panel">איור בפאנל</a><a href="#notes">הערות לשילוב</a>
+  </nav>
+
+  <div class="motion-bar" role="group" aria-label="בקרת אנימציה">
+    <button type="button" id="play" aria-pressed="true"><span id="play-label">השהיה</span></button>
+    <label>מהירות <select id="speed"><option value="1">רגילה</option><option value="0.5">איטית (×0.5)</option><option value="0.25">איטית מאוד (×0.25)</option></select></label>
+    <span id="motion-note" class="note" role="status"></span>
+  </div>
+
+  <main>
+    <section id="hero" aria-labelledby="h-hero">
+      <h2 id="h-hero">הדמות</h2>
+      <div class="hero">
+        <figure class="device big" aria-label="סטטיק במצב מנוחה, מוגדל">
+          <div class="screen" id="hero-screen" role="img" aria-label="סטטיק במצב מנוחה: מצמץ ומציץ מדי פעם"></div>
+          <figcaption>מנוחה · מוגדל ×3.5 · מוקאפ</figcaption>
+        </figure>
+        <div class="text">
+          <ul class="points">
+            <li><b>קוויף גבוה בלונדיני</b> עם קצוות בהירים, וצדדים כהים.</li>
+            <li><b>משקפיים גדולים במסגרת דקה.</b> העיניים והפה נשארים ברורים מבעד לעדשות. במצבים של הקלטה והתראה המסגרת נצבעת (אדום / כתום) במקום מסגרת צבעונית סביב הראש.</li>
+            <li><b>עיניים ופה פשוטים:</b> לבן, אישון כהה וניצוץ אחד. כל הבעה היא שינוי של גובה העין, כיוון המבט, הגבות והפה.</li>
+            <li><b>זהב רק בעגיל קטן</b> באוזן שמאל (3 פיקסלים). נשאר נראה ברזולוציה המקורית, ולכן נשאר.</li>
+            <li><b>מקורית, לא דיוקן:</b> דמות קריקטורית בהשראת הסגנון, בלי תווי פנים של אדם אמיתי. אין חיקוי של קול של אף אחד: הקול נשאר הקול המקומי הקיים.</li>
+            <li><b>כל הצורות פשוטות</b> (מצולעים, מלבנים מעוגלים, עיגולים, קווים וטקסט) ולכן אפשר לצייר אותן עם הפקודות שכבר קיימות במסך ה-Stick. הסיבובים (משקפיים נטויים, קוויף מתנדנד) מחושבים מראש לנקודות.</li>
+          </ul>
+          <div class="swatches" aria-label="פלטת הצבעים">
+            <span style="--c:#F1C8A0">עור</span><span style="--c:#2B2833;color:#ddd">שיער כהה</span><span style="--c:#E5B53A">בלונד</span><span style="--c:#FFE07A">בלונד בהיר</span><span style="--c:#FFF4B8">קצוות</span><span style="--c:#D8DEE2">משקפיים</span><span style="--c:#E9B824">זהב</span><span style="--c:#19F5E1">טורקיז (סימנים)</span><span style="--c:#FF3B3B;color:#fff">אדום</span><span style="--c:#FF8A3D">כתום</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="states" aria-labelledby="h-states">
+      <h2 id="h-states">כל המצבים הקיימים</h2>
+      <p class="note">אותם שמות מצב כמו בקוד של ה-Stick (<bdi dir="ltr">robot.py</bdi>). בכל כרטיס: <b>גודל מקורי</b> (135×240 פיקסלים, בלי החלקה) ו<b>מוגדל</b>. הטקסטים הם גופן של הדפדפן; ב-Stick הגופן הוא Montserrat.</p>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="pixels" aria-labelledby="h-pixels">
+      <h2 id="h-pixels">בדיקת פיקסלים</h2>
+      <p class="note">הציור מורנדר בדיוק ב-135×240 בלי החלקה ומוגדל פי 4 בלי טשטוש, כדי לראות מה שורד ברזולוציה של המסך (למשל העגיל, מסגרת המשקפיים בעובי 3 פיקסלים והברק). זו הערכה בדפדפן, לא צילום של המכשיר.</p>
+      <div class="inspector">
+        <div class="controls">
+          <label>מצב <select id="px-state"></select></label>
+          <label>זמן <input type="range" id="px-time" min="0" max="6000" step="20" value="1000"><output id="px-out" dir="ltr">1000 ms</output></label>
+        </div>
+        <div class="pxrow">
+          <figure class="device"><canvas id="px-native" width="135" height="240" aria-label="גודל מקורי"></canvas><figcaption>מקורי <bdi dir="ltr">135×240</bdi></figcaption></figure>
+          <figure class="device"><canvas id="px-zoom" width="135" height="240" aria-label="מוגדל פי 4"></canvas><figcaption>פי 4, פיקסלים חדים</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel" aria-labelledby="h-panel">
+      <h2 id="h-panel">הצעה: האיור בפאנל בשולחן העבודה</h2>
+      <p class="note"><b>מוקאפ של ההצעה בלבד; הפאנל החי לא שונה.</b> הפריסה המאושרת (השלט) והבקרים נשארים כמו שהם. מוחלף רק האיור בתוך התצוגה הקטנה.</p>
+      <div class="panel-mock" id="panel-mock">
+        <div class="pm-top">
+          <figure class="pm-display" aria-label="איור של סטטיק. קישוט בלבד: זה אינו שידור חי של מסך הסטיק">
+            <div class="pm-screen" id="pm-screen" role="img"></div>
+            <figcaption class="display-tag">איור בלבד</figcaption>
+          </figure>
+          <div class="pm-status">
+            <span class="chip" id="pm-chip"><span class="dot" id="pm-dot"></span><span id="pm-chip-text"></span></span>
+            <p class="state-line" id="pm-state"></p>
+            <dl class="telemetry" aria-label="נתונים מהדיווח האחרון (דוגמה)"><div><dt>דיווח אחרון</dt><dd id="pm-age">לפני 4 שנ׳</dd></div><div><dt>סוללה</dt><dd>87% · בטעינה</dd></div></dl>
+          </div>
+        </div>
+        <div class="pm-scenarios" role="radiogroup" aria-label="מה הסטיק דיווח (דוגמה)">
+          <button type="button" role="radio" aria-checked="true" data-k="awake">ער, דיווח עדכני</button>
+          <button type="button" role="radio" aria-checked="false" data-k="sleeping">ישן</button>
+          <button type="button" role="radio" aria-checked="false" data-k="waiting">פקודה ממתינה לאישור</button>
+          <button type="button" role="radio" aria-checked="false" data-k="unknown">אין דיווח / לא ידוע</button>
+        </div>
+        <div class="pm-rows" aria-label="דוגמאות לסטטוס הגדרה: הם נפרדים מהאיור ולא משתנים בגללו">
+          <div class="row"><span>הקול של סטטיק</span><span class="st ok"><i></i>אושר</span></div>
+          <div class="row"><span>בהירות המסך</span><span class="st pending"><i></i>ממתין לאישור · 12 שנ׳</span></div>
+          <div class="row"><span>צלצול התראות</span><span class="st stale"><i></i>אושר (דיווח ישן)</span></div>
+          <div class="row"><span>שינה אוטומטית</span><span class="st error"><i></i>לא נשמר: אין תגובה מהשרת</span></div>
+        </div>
+        <ul class="points small">
+          <li>האיור נקבע <b>רק</b> ממה שהסטיק דיווח (ער / ישן / ממתין / לא ידוע). הוא אף פעם לא מציג "מקשיב", "חושב" או "מדבר", כי הסטיק לא מדווח את אלה בזמן אמת.</li>
+          <li>כיתוב "איור בלבד" נשאר, והאיור מוקף במסגרת קישוט. נתוני אמת (גיל הדיווח, סוללה, מצבי אישור) נשארים באלמנטים שטוחים נפרדים, ואינם מושפעים מהאנימציה.</li>
+          <li>מצבי הסטטוס (אושר, ממתין, ישן, שגיאה) משתנים רק לפי הדיווח והשרת, לא לפי איור כלשהו. "לא ידוע" מוצג באפור, בלי מצמוץ.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="notes" aria-labelledby="h-notes">
+      <h2 id="h-notes">הערות לשילוב (לא בוצע)</h2>
+      <ul class="points">
+        <li><b>מה לא שונה:</b> מסך ה-Stick האמיתי (<bdi dir="ltr">stick/robot.py</bdi>) והפאנל החי. זה אב-טיפוס להערכת מראה בלבד, ולא מומש כלום על המכשיר.</li>
+        <li><b>אם יאושר:</b> מחליפים את הציור ב-<bdi dir="ltr">robot.py</bdi> בלבד, באותו ממשק (<bdi dir="ltr">set / update / hold / relabel</bdi>) ובאותם שמות מצבים, כך שאף קוד אחר (הקלטה, השמעה, שינה, תזכורות) לא משתנה. את הזיכרון והעיבוד נמדוד על המכשיר לפני שמחליטים.</li>
+        <li><b>ענף השמעה ב-Mac:</b> אנימציית הדיבור שם היא דפוס כללי של פה ולא סנכרון לצליל (הצליל ב-Mac). גם כאן: ציור הפה במצב "מדבר" ייעשה עם אותו דפוס כללי, בלי לטעון לסנכרון. פירוט ב-<bdi dir="ltr">docs/identity.md</bdi>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer><p>מוקאפ בדפדפן · לא אומת על המכשיר · כל הנתונים בדף הם נתוני דוגמה · <bdi lang="en" dir="ltr">Statick</bdi> הוא שם העוזר; לא האמן.</p></footer>
+
+  <script src="statick.js"></script>
+  <script src="prototype.js"></script>
+</body>
+</html>

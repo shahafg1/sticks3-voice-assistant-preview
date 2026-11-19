@@ -1,0 +1,3 @@
+{"SPUSBDataType": [{"_name": "USB Hub", "_items": [
+  {"_name": "USB JTAG/serial debug unit", "vendor_id": "0x303a  (Espressif Systems)", "product_id": "0x1001", "serial_num": "SECRET-SERIAL-123"},
+  {"_name": "Some Keyboard", "vendor_id": "0x05ac  (Apple Inc.)", "product_id": "0x0250"}]}]}

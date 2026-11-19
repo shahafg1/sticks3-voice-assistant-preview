@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Statick preview sheet (browser mockup)</title>
+<style>body{margin:0;background:#15181c;color:#cfd8dc;font:12px system-ui,sans-serif}.g{display:flex;flex-wrap:wrap;gap:14px;padding:14px}.c{text-align:center}.c svg{display:block;border:1px solid #2c333a}</style></head>
+<body><div class="g" id="g"></div>
+<script src="statick.js"></script>
+<script>
+// Review-image generator: ?states=a,b&t=ms&scale=n  (or ?state=speaking&t=...&bare=1 for one bare frame). A browser mockup; not the Stick.
+const q = new URLSearchParams(location.search);
+const states = (q.get("states") || q.get("state") || Statick.STATES.join(",")).split(",");
+const t = Number(q.get("t") || 1000), scale = Number(q.get("scale") || 1), bare = q.get("bare") === "1", crisp = q.get("crisp") === "1";
+const g = document.getElementById("g");
+if (q.get("strip")) {                                   // ?strip=<state>&step=ms&count=n&cols=n : consecutive frames in one image (for animation previews)
+  const step = Number(q.get("step") || 80), count = Number(q.get("count") || 30), cols = Number(q.get("cols") || 10), s = q.get("strip");
+  g.style.cssText = `display:grid;grid-template-columns:repeat(${cols},${Statick.W * scale}px);gap:0;padding:0`;
+  document.body.style.background = "#000";
+  for (let i = 0; i < count; i++) { const d = document.createElement("div"); d.innerHTML = Statick.svgString(Statick.scene(s, i * step), { w: Statick.W * scale, h: Statick.H * scale }); g.appendChild(d); }
+  states.length = 0;
+}
+for (const s of states) {
+  const d = document.createElement("div"); d.className = "c";
+  const items = s.startsWith("panel-") ? Statick.panelScene(s.slice(6), t) : Statick.scene(s, t, q.get("level") ? { level: Number(q.get("level")) } : {});
+  d.innerHTML = Statick.svgString(items, { w: Statick.W * scale, h: Statick.H * scale, crisp }) + (bare ? "" : "<div>" + s + "</div>");
+  g.appendChild(d);
+}
+if (bare) { document.body.style.background = "#000"; g.style.padding = "0"; g.style.gap = "0"; }
+</script></body></html>
