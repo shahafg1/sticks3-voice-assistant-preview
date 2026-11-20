@@ -67,7 +67,7 @@ Recorded 2026-11-18 on the development Mac (Apple silicon, macOS 27.2.1), in a s
 * **Not exercised:** a Mac without Homebrew/Python/ffmpeg/Claude (the guidance paths are covered only by the simulated cases), a cold network cache, starting the server or the Stick, Claude login, the firewall prompt, and any Mac other than this one.
 
 ## Open gaps (recorded after the milestone; nothing below is solved yet)
-The single, current status list for the whole kit (device, firmware, Claude, security, licences, privacy, docs) is [distribution-checklist.md](distribution-checklist.md); the gaps below are its host-setup details.
+The kit's overall limitations are listed in docs/getting-started.md; the gaps below are the host-setup details.
 
 **Clean-Mac gaps**
 1. No rehearsal on a Mac (or macOS user account) that has no Homebrew, Python, ffmpeg or Claude Code yet. The "missing prerequisite" guidance is exercised only by simulated cases.

@@ -61,4 +61,6 @@
   2. מחקו רק את הקבצים שההתקנה יצרה (`tools/stick_install.py remove-created`).
 * **גיבוי ושחזור כלליים:** docs/stick-backup.md ו-docs/stick-restore.md.
 * **הפעלה אוטומטית וכניסה ל-Setup:** docs/stick-setup.md (`autostart --off` / `--on`).
+* **פתרון תקלות לפי תסמין:** docs/troubleshooting.md (באנגלית).
+* **התקנה בעזרת עוזר AI:** README.md, בסעיף "Install with an AI assistant" (ההוראות לעוזר: AGENTS.md).
 * **הכנת ה-Mac:** `./setup-mac.sh remove` מראה מה יימחק, ו-`./setup-mac.sh remove --apply` מוחק רק את מה שההתקנה יצרה (docs/mac-setup.md).

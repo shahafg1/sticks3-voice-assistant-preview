@@ -22,7 +22,30 @@ There's also a small control panel on the Mac (open it with `Voice Assistant Pan
 ./setup.sh          # explains the requirements and the plan; changes nothing
 ./setup.sh run      # the guided setup (Hebrew); asks before each step that changes something
 ```
-The guide, in Hebrew: **[docs/getting-started.md](docs/getting-started.md)**. It covers the setup order, the known limitations and how to go back.
+The guide, in Hebrew: **[docs/getting-started.md](docs/getting-started.md)**. It covers the setup order, the known limitations and how to go back. When something fails: **[docs/troubleshooting.md](docs/troubleshooting.md)**.
+
+## Install with an AI assistant
+You can ask an AI coding assistant (Claude Code, Codex or similar) to do the installation with you.
+* **What it follows:** [AGENTS.md](AGENTS.md) (Claude Code reads it through [CLAUDE.md](CLAUDE.md)). It inspects first, shows one plan, runs the same setup tools with their safety checks, and asks you for:
+  * your logins;
+  * anything physical on the Stick;
+  * choosing the device;
+  * the final listening check.
+* **What it never does:** flash firmware, replace the device key, or see your passwords.
+* **What it doesn't change:** the voice assistant's own Claude call still runs isolated, and doesn't load these files.
+
+Copy one prompt into the assistant:
+
+**English**
+```text
+Download the newest pre-release of https://github.com/shahafg1/sticks3-voice-assistant-preview, verify it against its SHA256SUMS and extract it into a new folder. Before doing anything else, read AGENTS.md and the guides it lists. Then help me install it on my Mac and my StickS3: inspect the current state first, show me one plan with everything you need from me, and involve me whenever a step needs my login, my hands on the device or my confirmation. Talk to me in English.
+```
+
+**עברית**
+```text
+הורד את גרסת התצוגה המקדימה החדשה ביותר מ-https://github.com/shahafg1/sticks3-voice-assistant-preview, בדוק אותה מול קובץ SHA256SUMS וחלץ אותה לתיקייה חדשה. לפני כל פעולה אחרת, קרא את AGENTS.md ואת המדריכים שהוא מפנה אליהם. אחר כך עזור לי להתקין אותה על ה-Mac ועל ה-StickS3: קודם בדוק את המצב הקיים, הצג לי תוכנית אחת עם כל מה שאתה צריך ממני, ושתף אותי בכל שלב שדורש התחברות שלי, פעולה שלי על המכשיר או אישור שלי. דבר איתי בעברית.
+```
+Already downloaded? Open the project folder in the assistant and start the prompt from "Before doing anything else".
 
 ## Privacy and security
 * **[docs/privacy-he.md](docs/privacy-he.md)** (Hebrew) and **[docs/privacy-review.md](docs/privacy-review.md)** describe what is sent to Anthropic, what is stored locally and how to delete it.
@@ -36,9 +59,10 @@ The guide, in Hebrew: **[docs/getting-started.md](docs/getting-started.md)**. It
 | Stick setup: Wi-Fi, key, auto-start, pairing | [stick-setup](docs/stick-setup.md) |
 | Installing, backing up and restoring the Stick's files | [stick-install](docs/stick-install.md), [stick-backup](docs/stick-backup.md), [stick-restore](docs/stick-restore.md) |
 | Control panel and reminders | [desktop-panel](docs/desktop-panel.md), [reminders](docs/reminders.md) |
+| When something fails | [troubleshooting](docs/troubleshooting.md) |
 
 ## Tests
-`python3 tests/run_all.py --sandbox` runs the package's test suites (after `./setup-mac.sh apply`; prerequisites in [tests/README.md](tests/README.md)).
+`python3 tests/run_all.py --sandbox` runs the package's test suites (after the Mac setup, `./setup-mac.sh apply --advertise-host <address>`; prerequisites in [tests/README.md](tests/README.md)).
 
 ## Licence
 MIT for this project's original code, documentation and sound effects (`LICENSE`). Third-party software, models and services keep their own licences (`THIRD_PARTY_NOTICES.md`).

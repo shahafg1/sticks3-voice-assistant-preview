@@ -19,13 +19,13 @@ blocked by the guard if it is attempted from a test. Do not name such scripts `t
 
 ## Running the tests from a release package
 ```sh
-./setup-mac.sh apply                  # once: creates voice-env, the Python the server tests need (numpy, scipy)
+./setup-mac.sh apply --advertise-host <address>   # once (the Mac setup): creates voice-env, the Python the server tests need
 python3 tests/run_all.py --sandbox    # every suite in the package; prints "N/N suites passed" and exits 0
 ```
 **What it does:** `--sandbox` copies the package (without your `config/host.conf`, environments, data, secrets or recordings) into a temporary folder with its own HOME, and runs every suite there under the isolation guard. It works without git.
 
 **Prerequisites:**
-* the server environment, `voice-env`, created by `./setup-mac.sh apply`. You can instead point `STICK_TEST_PYTHON` at any Python 3.14 with numpy and scipy;
+* the server environment, `voice-env`, created by the Mac setup (`./setup-mac.sh apply --advertise-host <address>`; the address isn't needed once `config/host.conf` exists). You can instead point `STICK_TEST_PYTHON` at any Python 3.14 with numpy and scipy;
 * `zsh` (the macOS default shell);
 * Node.js, for the panel-script and Statick-geometry checks. Without it those two suites fail with a clear message; they are never skipped silently.
 

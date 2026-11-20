@@ -219,4 +219,4 @@ text, with the diagnostic details (report age classes, store id and revision, fi
 uptime) moved into a **collapsed section**. Do not redesign yet; the status rules above stay as they
 are, only their presentation changes.
 
-> Note (v0.10.0): `panel/` is served directly from disk, so changing files there changes the live UI at once. The UI is now the robot remote described in [panel-ui.md](panel-ui.md); develop UI changes in a separate folder on an isolated server (`STICK_PANEL_DIR`).
+> Note (v0.10.0): `panel/` is served directly from disk, so changing files there changes the live UI at once. The UI is now the robot remote; develop UI changes in a separate folder on an isolated server (`STICK_PANEL_DIR`).
